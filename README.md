@@ -15,13 +15,11 @@ declared inline via PEP 723 — `uv run` handles the env.
 
 ## Install
 
-```bash
-git clone https://github.com/<you>/claude-usage-monitor.git
-cd claude-usage-monitor
+Clone the repo and `cd` into it, then:
 
+```bash
 # 1. Run the receiver at every login (macOS LaunchAgent)
-sed "s|__INSTALL_DIR__|$PWD|g" claude-usage-monitor.plist \
-  > ~/Library/LaunchAgents/claude-usage-monitor.plist
+sed "s|__INSTALL_DIR__|$PWD|g" claude-usage-monitor.plist > ~/Library/LaunchAgents/claude-usage-monitor.plist
 launchctl bootstrap "gui/$UID" ~/Library/LaunchAgents/claude-usage-monitor.plist
 
 # 2. Tell Claude Code where to send telemetry — append to ~/.zshrc
